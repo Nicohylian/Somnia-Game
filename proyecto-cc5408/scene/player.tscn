@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://kf3nir6ir55k"]
+
+[ext_resource type="Script" uid="uid://cxksfqoykbdln" path="res://scene/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://xr33gf4rd3mi" path="res://icon.svg" id="1_xo3ru"]
+[ext_resource type="PackedScene" uid="uid://cj3p0w1h5b8ls" path="res://scene/shadow.tscn" id="2_fvtld"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hjaqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hjaqi")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0.249999, 1.66893e-06)
+scale = Vector2(0.160156, 0.234375)
+texture = ExtResource("1_xo3ru")
+
+[node name="ShadowDirection" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(500, 0)
+
+[node name="Shadow" parent="ShadowDirection" instance=ExtResource("2_fvtld")]
+unique_name_in_owner = true
+position = Vector2(500, 1)
