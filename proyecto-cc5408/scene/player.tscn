@@ -7,6 +7,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_hjaqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,8 +20,8 @@ texture = ExtResource("1_xo3ru")
 
 [node name="ShadowDirection" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-target_position = Vector2(500, 0)
+target_position = Vector2(1200, 0)
 
-[node name="Shadow" parent="ShadowDirection" instance=ExtResource("2_fvtld")]
-unique_name_in_owner = true
-position = Vector2(500, 1)
+[node name="Shadow" parent="." instance=ExtResource("2_fvtld")]
+visible = false
+position = Vector2(797, 1)

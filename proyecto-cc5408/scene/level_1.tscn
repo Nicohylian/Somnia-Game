@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceh7tpq28bjol"]
+[gd_scene load_steps=7 format=3 uid="uid://ceh7tpq28bjol"]
 
 [ext_resource type="Texture2D" uid="uid://xr33gf4rd3mi" path="res://icon.svg" id="1_rpurj"]
 [ext_resource type="Script" uid="uid://dapwxcyqtvabx" path="res://scene/level_1.gd" id="1_xesoj"]
 [ext_resource type="PackedScene" uid="uid://kf3nir6ir55k" path="res://scene/player.tscn" id="2_3flxk"]
 [ext_resource type="PackedScene" uid="uid://bfwn07d8i2mqo" path="res://scene/light.tscn" id="4_53ndp"]
-[ext_resource type="PackedScene" uid="uid://cj3p0w1h5b8ls" path="res://scene/shadow.tscn" id="5_53ndp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xesoj"]
 size = Vector2(1148, 50)
@@ -27,13 +26,13 @@ position = Vector2(54, 16.5)
 scale = Vector2(8.98438, 0.398437)
 texture = ExtResource("1_rpurj")
 
+[node name="Light" parent="StaticBody2D" instance=ExtResource("4_53ndp")]
+unique_name_in_owner = true
+position = Vector2(-207, -27)
+
 [node name="Player" parent="StaticBody2D" instance=ExtResource("2_3flxk")]
 unique_name_in_owner = true
 position = Vector2(-477, -32)
-
-[node name="Light" parent="StaticBody2D" instance=ExtResource("4_53ndp")]
-unique_name_in_owner = true
-position = Vector2(-208, -37)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(1045, 450)
@@ -46,5 +45,3 @@ shape = SubResource("RectangleShape2D_53ndp")
 position = Vector2(1.50003, -1.99999)
 scale = Vector2(1.17969, 1.23437)
 texture = ExtResource("1_rpurj")
-
-[node name="Shadow" parent="." instance=ExtResource("5_53ndp")]
