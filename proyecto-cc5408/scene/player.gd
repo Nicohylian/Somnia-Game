@@ -1,11 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+
 @onready var shadow_direction: RayCast2D = %ShadowDirection
 @export var direction: Vector2 = Vector2(1,0)
 @onready var shadow: Shadow = $Shadow
+@onready var pivot: Node2D = $pivot
 
-
+@onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
 
 const SPEED = 300.0
@@ -13,7 +17,8 @@ const JUMP_VELOCITY = -400.0
 
 
 
-
+func _ready() -> void:
+	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
 	
@@ -41,6 +46,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	if direction != 0:
+		pivot.scale.x = sign(direction)
+	
+	if(is_on_floor()):
+		if(velocity.length() == 0):
+			playback.travel("idle")
+		else:
+			playback.travel("run")
 	
 	
 	if shadow_direction.is_colliding():
