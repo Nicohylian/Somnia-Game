@@ -14,6 +14,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var shadow_direction: Vector2 = player.global_position - light.global_position
 	player.direction1 = shadow_direction
-
-func add_player(new_player: Player) -> void:
-	player = new_player
