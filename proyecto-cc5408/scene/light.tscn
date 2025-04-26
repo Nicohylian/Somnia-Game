@@ -53,7 +53,7 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Light" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 1)
+position = Vector2(2.84217e-14, -2)
 scale = Vector2(0.3125, 0.34375)
 texture = ExtResource("1_esuvq")
 hframes = 61

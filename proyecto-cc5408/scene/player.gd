@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		if shadow_direction.is_colliding():
 			velocity = Vector2(0,0)
-			translate(shadow.global_position - global_position)
+			translate((shadow.global_position - global_position) - Vector2(15,0).rotated(direction1.angle()))
 			
 			
 
