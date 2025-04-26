@@ -175,6 +175,9 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 polygon = PackedVector2Array(3.44506, -0.235908, 4.30633, 1.41545, 0.861266, 2.8309, -2.5838, 1.65136, -2.5838, -0.235908, -2.5838, -2.59499, 3.44506, -2.59499)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+platform_wall_layers = 3
 script = ExtResource("1_hjaqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
