@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfwn07d8i2mqo"]
+[gd_scene load_steps=7 format=3 uid="uid://bfwn07d8i2mqo"]
 
 [ext_resource type="Texture2D" uid="uid://bocd0imf8hwbp" path="res://scene/spritesheet (2).png" id="1_esuvq"]
 
@@ -41,6 +41,15 @@ _data = {
 &"idle": SubResource("Animation_4olsw")
 }
 
+[sub_resource type="Gradient" id="Gradient_esuvq"]
+offsets = PackedFloat32Array(0, 0.763158)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4olsw"]
+gradient = SubResource("Gradient_esuvq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Light" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -54,3 +63,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_hdxgp")
 }
 autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(20, 20)
+color = Color(0.305882, 0.745098, 1, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_4olsw")
