@@ -1,5 +1,6 @@
 class_name Shadow
-extends Sprite2D
+extends Node2D
+
 
 
 # Called when the node enters the scene tree for the first time.
