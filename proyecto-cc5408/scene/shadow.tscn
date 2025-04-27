@@ -1,17 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj3p0w1h5b8ls"]
+[gd_scene load_steps=3 format=3 uid="uid://cj3p0w1h5b8ls"]
 
 [ext_resource type="Script" uid="uid://b6ij1tjwn0njw" path="res://shadow.gd" id="1_vll7a"]
 [ext_resource type="Texture2D" uid="uid://xr33gf4rd3mi" path="res://icon.svg" id="2_7yvpi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vll7a"]
-radius = 31.8182
-
-[node name="Icon" type="Sprite2D"]
-scale = Vector2(0.22, 0.22)
-texture = ExtResource("2_7yvpi")
+[node name="Shadow" type="Node2D"]
 script = ExtResource("1_vll7a")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_vll7a")
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.709804)
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_7yvpi")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)
