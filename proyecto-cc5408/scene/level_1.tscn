@@ -654,18 +654,22 @@ metadata/_edit_group_ = true
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_c1764")]
 unique_name_in_owner = true
-offset_left = -97.0
-offset_top = -106.0
-offset_right = 59.0
-offset_bottom = 117.0
+offset_left = -78.0
+offset_top = -111.5
+offset_right = 78.0
+offset_bottom = 111.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Timer" type="Timer" parent="CanvasLayer"]
 wait_time = 10.0
 autostart = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 1029.0
-offset_top = 4.0
-offset_right = 1073.0
-offset_bottom = 27.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 23.0
+grow_horizontal = 0
 text = "time: "
