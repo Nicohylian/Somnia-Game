@@ -7,6 +7,7 @@ extends Node2D
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var timer: Timer = $CanvasLayer/Timer
 @onready var label: Label = $CanvasLayer/Label
+@onready var pause_menu: MarginContainer = %PauseMenu
 
 var lights: Array
 
@@ -14,6 +15,7 @@ var lights: Array
 func _ready() -> void:
 	lights = get_tree().get_nodes_in_group("Light")
 	door.body_entered.connect(_win_level)
+	
 	
 
 
