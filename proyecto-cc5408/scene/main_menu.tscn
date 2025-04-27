@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://73l38qryt2q3"]
+[gd_scene load_steps=2 format=3 uid="uid://73l38qryt2q3"]
+
+[ext_resource type="Script" uid="uid://q1b5ny30s4eg" path="res://scene/main_menu.gd" id="1_3er1b"]
 
 [node name="Main Menu" type="MarginContainer"]
 anchors_preset = 8
@@ -12,6 +14,7 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
+script = ExtResource("1_3er1b")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
