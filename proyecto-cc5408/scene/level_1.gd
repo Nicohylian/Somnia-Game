@@ -3,12 +3,15 @@ extends Node2D
 
 @onready var player: Player = %Player
 @onready var light: Node2D = %Light
+@onready var door: Area2D = %Door
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var lights: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lights = get_tree().get_nodes_in_group("Light")
+	door.body_entered.connect(_win_level)
 	
 
 
@@ -24,3 +27,8 @@ func _process(delta: float) -> void:
 		
 	var shadow_direction: Vector2 = player.global_position - current_light.global_position
 	player.direction1 = shadow_direction
+	
+func _win_level(body: Node2D) -> void:
+	var label: Label = Label.new()
+	label.text = "You Win"
+	canvas_layer.add_child(label)
