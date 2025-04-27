@@ -5,6 +5,8 @@ extends Node2D
 @onready var light: Node2D = %Light
 @onready var door: Area2D = %Door
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var timer: Timer = $CanvasLayer/Timer
+@onready var label: Label = $CanvasLayer/Label
 
 var lights: Array
 
@@ -27,8 +29,12 @@ func _process(delta: float) -> void:
 		
 	var shadow_direction: Vector2 = player.global_position - current_light.global_position
 	player.direction1 = shadow_direction
+	var time = str(timer.time_left / 1)
+	label.text = "time: " + time
 	
 func _win_level(body: Node2D) -> void:
-	var label: Label = Label.new()
-	label.text = "You Win"
-	canvas_layer.add_child(label)
+	if body is Player:
+		var label: Label = Label.new()
+		label.text = "You Win"
+		canvas_layer.add_child(label)
+		timer.stop()

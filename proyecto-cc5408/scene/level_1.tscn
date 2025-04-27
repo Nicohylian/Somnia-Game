@@ -373,3 +373,14 @@ position = Vector2(854, 463)
 metadata/_edit_group_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 10.0
+autostart = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1029.0
+offset_top = 4.0
+offset_right = 1073.0
+offset_bottom = 27.0
+text = "time: "
