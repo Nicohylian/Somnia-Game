@@ -5,9 +5,15 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var shadow_direction: RayCast2D = %ShadowDirection
-@export var direction: Vector2 = Vector2(1,0)
+@export var direction1: Vector2 = Vector2(1,0)
 @onready var shadow: Shadow = $Shadow
 @onready var pivot: Node2D = $pivot
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+
+@export var player_scene: PackedScene 
+
+
 
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
@@ -19,10 +25,11 @@ const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	animation_tree.active = true
+	
 
 func _physics_process(delta: float) -> void:
 	
-	shadow_direction.rotation = direction.angle()
+	shadow_direction.rotation = direction1.angle()
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -34,7 +41,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("action"):
 		if shadow_direction.is_colliding():
-			global_position = shadow.global_position
+			velocity = Vector2(0,0)
+			translate((shadow.global_position - global_position) - Vector2(15,0).rotated(direction1.angle()))
+			
+			
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

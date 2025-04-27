@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://kf3nir6ir55k"]
+[gd_scene load_steps=17 format=3 uid="uid://kf3nir6ir55k"]
 
 [ext_resource type="Script" uid="uid://cxksfqoykbdln" path="res://scene/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://cvdoewmeequdp" path="res://scene/spritesheet (1).png" id="2_ct4mp"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://6bqpke7iru2f" path="res://scene/spritesheet.png" id="4_s4jxa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
+radius = 4.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_hp4bs"]
 length = 0.001
@@ -169,11 +171,18 @@ states/run/node = SubResource("AnimationNodeAnimation_ihjo1")
 states/run/position = Vector2(614.667, 96.6667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_dk1vr"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_34jf3"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_u7b46")]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ct4mp"]
+polygon = PackedVector2Array(2.5, 2, -2.5, 2, -2.5, -2, 2.5, -2)
+
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+scale = Vector2(1.25, 1.25)
+collision_layer = 3
+collision_mask = 3
+platform_wall_layers = 3
 script = ExtResource("1_hjaqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_hjaqi")
 
 [node name="pivot" type="Node2D" parent="."]
@@ -186,11 +195,11 @@ hframes = 7
 
 [node name="ShadowDirection" type="RayCast2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, 1)
 target_position = Vector2(1200, 0)
 
 [node name="Shadow" parent="." instance=ExtResource("2_fvtld")]
-visible = false
-position = Vector2(797, 1)
+position = Vector2(1194, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -200,3 +209,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_j4wxg")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.16108, -4.23894)
+occluder = SubResource("OccluderPolygon2D_ct4mp")
