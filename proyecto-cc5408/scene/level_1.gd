@@ -15,7 +15,7 @@ var lights: Array
 func _ready() -> void:
 	lights = get_tree().get_nodes_in_group("Light")
 	door.body_entered.connect(_win_level)
-	
+	timer.timeout.connect(_lose_level)
 	
 
 
@@ -31,12 +31,26 @@ func _process(delta: float) -> void:
 		
 	var shadow_direction: Vector2 = player.global_position - current_light.global_position
 	player.direction1 = shadow_direction
-	var time = str(timer.time_left / 1)
+	var time = str(snapped( timer.time_left, 0.01) )
 	label.text = "time: " + time
 	
 func _win_level(body: Node2D) -> void:
 	if body is Player:
 		var label: Label = Label.new()
 		label.text = "You Win"
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.set_anchors_preset(Control.PRESET_CENTER_TOP)
 		canvas_layer.add_child(label)
 		timer.stop()
+		get_tree().paused = true
+		pause_menu.show()
+
+func _lose_level() -> void:
+	var label: Label = Label.new()
+	label.text = "You Lose"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	canvas_layer.add_child(label)
+	timer.stop()
+	get_tree().paused = true
+	pause_menu.show()
