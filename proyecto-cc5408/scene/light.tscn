@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfwn07d8i2mqo"]
 
-[ext_resource type="Script" path="res://scene/light.gd" id="1_4olsw"]
+[ext_resource type="Script" uid="uid://byqiqemwtpul4" path="res://scene/light.gd" id="1_4olsw"]
 [ext_resource type="Texture2D" uid="uid://bocd0imf8hwbp" path="res://scene/spritesheet (2).png" id="1_esuvq"]
 
 [sub_resource type="Animation" id="Animation_27ipb"]
