@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ceh7tpq28bjol"]
+[gd_scene load_steps=31 format=4 uid="uid://ceh7tpq28bjol"]
 
 [ext_resource type="Script" uid="uid://dapwxcyqtvabx" path="res://scene/level_1.gd" id="1_xesoj"]
 [ext_resource type="PackedScene" uid="uid://kf3nir6ir55k" path="res://scene/player.tscn" id="2_3flxk"]
@@ -6,10 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://d3gicdjiefg83" path="res://scene/n01l02.png" id="3_lsoxn"]
 [ext_resource type="PackedScene" uid="uid://bfwn07d8i2mqo" path="res://scene/light.tscn" id="4_53ndp"]
 [ext_resource type="Texture2D" uid="uid://b3qq4r3aytrqw" path="res://scene/n01l03.png" id="4_lsoxn"]
+[ext_resource type="PackedScene" uid="uid://c71dj0nphl43v" path="res://cartel.tscn" id="5_tlh70"]
 [ext_resource type="Texture2D" uid="uid://doawg7aorhsxw" path="res://scene/tilemap.png" id="5_x17xt"]
 [ext_resource type="Texture2D" uid="uid://xr33gf4rd3mi" path="res://icon.svg" id="8_x17xt"]
 [ext_resource type="PackedScene" uid="uid://bqldpqut1qf6h" path="res://scene/pause_menu.tscn" id="9_c1764"]
+[ext_resource type="PackedScene" uid="uid://cegfpy7q3ebdd" path="res://healthbar.tscn" id="9_i3j6g"]
 [ext_resource type="PackedScene" uid="uid://mphk20fycqq4" path="res://scene/bulb.tscn" id="10_ri5j0"]
+[ext_resource type="PackedScene" uid="uid://bebvcvfkiq8hs" path="res://totem.tscn" id="11_1gcq6"]
+[ext_resource type="PackedScene" uid="uid://da1j2bxxd52dm" path="res://enemy.tscn" id="12_a2j0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1764"]
 
@@ -566,8 +570,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_c1764")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x17xt"]
-
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_xesoj")
 
@@ -585,6 +587,18 @@ texture = ExtResource("3_lsoxn")
 position = Vector2(582, 330)
 scale = Vector2(0.604167, 0.587037)
 texture = ExtResource("4_lsoxn")
+
+[node name="Node2D11" parent="." instance=ExtResource("5_tlh70")]
+position = Vector2(158, 451)
+
+[node name="Node2D12" parent="." instance=ExtResource("5_tlh70")]
+position = Vector2(505, 224)
+
+[node name="Node2D13" parent="." instance=ExtResource("5_tlh70")]
+position = Vector2(637, 376)
+
+[node name="Node2D14" parent="." instance=ExtResource("5_tlh70")]
+position = Vector2(829, 299)
 
 [node name="Vidrio" type="StaticBody2D" parent="."]
 position = Vector2(441, 423)
@@ -631,26 +645,22 @@ metadata/_edit_group_ = true
 unique_name_in_owner = true
 position = Vector2(308, 460)
 
-[node name="Player" parent="." instance=ExtResource("2_3flxk")]
+[node name="Door" parent="." instance=ExtResource("11_1gcq6")]
 unique_name_in_owner = true
-position = Vector2(99, 465)
+position = Vector2(981, 255)
+
+[node name="Enemigo" parent="." instance=ExtResource("12_a2j0k")]
+position = Vector2(102, 294)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_a2j0k")]
+position = Vector2(449, 232)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("12_a2j0k")]
+position = Vector2(1003, 450)
 
 [node name="Light2" parent="." instance=ExtResource("4_53ndp")]
 position = Vector2(616, 386)
 metadata/_edit_group_ = true
-
-[node name="Door" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(984, 270)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-scale = Vector2(1, 2)
-shape = SubResource("RectangleShape2D_x17xt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.17, 0.32)
-texture = ExtResource("8_x17xt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -663,18 +673,9 @@ offset_bottom = 111.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Timer" type="Timer" parent="CanvasLayer"]
-wait_time = 10.0
-autostart = true
-
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -44.0
+offset_right = 40.0
 offset_bottom = 23.0
-grow_horizontal = 0
-text = "time: "
 
 [node name="Light3" parent="." instance=ExtResource("4_53ndp")]
 unique_name_in_owner = true
@@ -709,3 +710,16 @@ position = Vector2(1036, 41)
 
 [node name="Node2D10" parent="." instance=ExtResource("10_ri5j0")]
 position = Vector2(537, 24)
+
+[node name="Player" parent="." instance=ExtResource("2_3flxk")]
+unique_name_in_owner = true
+position = Vector2(99, 465)
+
+[node name="Healthbar" parent="Player" instance=ExtResource("9_i3j6g")]
+offset_left = 29.6
+offset_top = -147.2
+offset_right = 29.6
+offset_bottom = -147.2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.5, 1.5)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bebvcvfkiq8hs"]
+
+[ext_resource type="Texture2D" uid="uid://8703sihwi7gw" path="res://scene/totem.png" id="1_jwx21"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x17xt"]
+size = Vector2(36, 29)
+
+[node name="Door" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("1_jwx21")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_x17xt")

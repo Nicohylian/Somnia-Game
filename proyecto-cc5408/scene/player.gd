@@ -2,20 +2,24 @@ class_name Player
 extends CharacterBody2D
 
 
-@onready var animation_tree: AnimationTree = $AnimationTree
+
 
 @onready var shadow_direction: RayCast2D = %ShadowDirection
 @export var direction1: Vector2 = Vector2(1,0)
 @onready var shadow: Shadow = $Shadow
 @onready var pivot: Node2D = $pivot
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var animated_sprite: AnimatedSprite2D = $pivot/AnimatedSprite2D
+@onready var teleport_timer: Timer = $Timer
+
 
 
 @export var player_scene: PackedScene 
 
 
 
-@onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+var is_teleporting = false
+
 
 
 const SPEED = 300.0
@@ -23,31 +27,37 @@ const JUMP_VELOCITY = -400.0
 
 
 
-func _ready() -> void:
-	animation_tree.active = true
-	
+func _ready():
+	is_teleporting = false  # Por seguridad
+
+
+
+
+
 
 func _physics_process(delta: float) -> void:
-	
+	if is_teleporting:
+		return  # Si está teletransportando, no se mueve ni hace nada más
+
 	shadow_direction.rotation = direction1.angle()
-	
-	# Add the gravity.
+
+	# GRAVEDAD
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+	# SALTO
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_just_pressed("action"):
-		if shadow_direction.is_colliding():
-			velocity = Vector2(0,0)
-			translate((shadow.global_position - global_position) - Vector2(15,0).rotated(direction1.angle()))
-			
-			
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# TELETRANSPORTE (tecla Z)
+	if Input.is_action_just_pressed("action") and shadow_direction.is_colliding():
+		is_teleporting = true
+		animated_sprite.play("tp")
+		teleport_timer.start()
+
+
+
+	# MOVIMIENTO HORIZONTAL
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -55,22 +65,47 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
+
+	# Flip del sprite
 	if direction != 0:
 		pivot.scale.x = sign(direction)
-	
-	if(is_on_floor()):
-		if(velocity.length() == 0):
-			playback.travel("idle")
-		else:
-			playback.travel("run")
-	
-	
+
+	# ANIMACIONES
+	# ANIMACIONES
+	if not is_teleporting:
+		if is_on_floor():
+			if velocity.length() == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+
+	# SOMBRA
 	if shadow_direction.is_colliding():
 		shadow.show()
 		shadow.global_position = shadow_direction.get_collision_point()
-	if not shadow_direction.is_colliding():
+	else:
 		shadow.visible = false
 		shadow.global_position = shadow_direction.target_position
+
+
+		
+func _on_timer_timeout():
+	print("¡Teletransportando!")
+	translate((shadow.global_position - global_position) - Vector2(15, 0).rotated(direction1.angle()))
+	velocity = Vector2.ZERO
+	is_teleporting = false
+
+
+
+			
+
+
+	
+	
+	
+
+
+	
+	
 		
 		
