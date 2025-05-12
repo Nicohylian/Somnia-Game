@@ -250,4 +250,9 @@ occluder = SubResource("OccluderPolygon2D_ct4mp")
 wait_time = 0.112
 one_shot = true
 
+[node name="TeleportCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TeleportCooldownTimer" to="." method="_on_teleport_cooldown_timer_timeout"]

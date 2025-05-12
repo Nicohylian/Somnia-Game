@@ -8,7 +8,7 @@ extends Node2D
 @onready var bar_sprite: TextureProgressBar = $CanvasLayer/Healthbar/Barra
 
 var lights: Array
-var total_time := 10.0  # Tiempo total en segundos
+var total_time := 30.0  # Tiempo total en segundos
 var time_left := total_time
 
 func _ready() -> void:
