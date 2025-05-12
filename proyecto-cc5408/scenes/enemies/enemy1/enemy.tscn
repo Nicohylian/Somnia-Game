@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://da1j2bxxd52dm"]
+
+[ext_resource type="Script" uid="uid://wycuunbr3lp8" path="res://scenes/enemies/enemy1/enemy.gd" id="1_iifgy"]
+[ext_resource type="SpriteFrames" uid="uid://dc4mi10to48aj" path="res://scenes/enemies/enemy1/enemy_fixed.tres" id="2_4gyqm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 11.9867
+height = 45.8547
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_iifgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4gyqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = ExtResource("2_4gyqm")
+animation = &"transformation"
+frame = 9
+frame_progress = 1.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(21, 0)

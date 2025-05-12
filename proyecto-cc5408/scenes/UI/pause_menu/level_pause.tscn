@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6lae70ry3nef"]
+
+[ext_resource type="PackedScene" uid="uid://bqldpqut1qf6h" path="res://scenes/UI/pause_menu/pause_menu.tscn" id="1_r2vog"]
+
+[node name="level_pause" type="CanvasLayer"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_r2vog")]
+unique_name_in_owner = true
+offset_left = -78.0
+offset_top = -111.5
+offset_right = 78.0
+offset_bottom = 111.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true

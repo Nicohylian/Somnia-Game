@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=4 uid="uid://nl2qxlvhwm5u"]
+
+[ext_resource type="Script" uid="uid://bl0anehhasddo" path="res://scenes/levels/level_4/level_4.gd" id="1_1hsbt"]
+[ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="2_vbokg"]
+[ext_resource type="Texture2D" uid="uid://d3gicdjiefg83" path="res://assets/backgrounds/n01l02.png" id="3_8iulw"]
+[ext_resource type="Texture2D" uid="uid://b3qq4r3aytrqw" path="res://assets/backgrounds/n01l03.png" id="4_u5r15"]
+[ext_resource type="PackedScene" uid="uid://cr0qvrewh7not" path="res://scenes/tilemaps/tilemap_blue.tscn" id="5_8x8ht"]
+[ext_resource type="PackedScene" uid="uid://bfwn07d8i2mqo" path="res://scenes/light/light.tscn" id="6_qt7kc"]
+[ext_resource type="PackedScene" uid="uid://kf3nir6ir55k" path="res://scenes/player/player.tscn" id="7_jsw7a"]
+[ext_resource type="PackedScene" uid="uid://un2s82v6oow7" path="res://scenes/translucid_items/vidrio.tscn" id="8_eo0ex"]
+[ext_resource type="PackedScene" uid="uid://bebvcvfkiq8hs" path="res://scenes/totem/totem.tscn" id="9_qvdhf"]
+[ext_resource type="PackedScene" uid="uid://b6lae70ry3nef" path="res://scenes/UI/pause_menu/level_pause.tscn" id="10_sibk2"]
+[ext_resource type="PackedScene" uid="uid://cegfpy7q3ebdd" path="res://scenes/UI/healthbar/healthbar.tscn" id="11_bjdha"]
+[ext_resource type="PackedScene" uid="uid://da1j2bxxd52dm" path="res://scenes/enemies/enemy1/enemy.tscn" id="12_kfb4c"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_1hsbt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584.09, 325.615)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_vbokg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(579, 337.5)
+scale = Vector2(0.601042, 0.623148)
+texture = ExtResource("3_8iulw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(581, 338)
+scale = Vector2(0.602083, 0.62037)
+texture = ExtResource("4_u5r15")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("5_8x8ht")]
+tile_map_data = PackedByteArray("AAAdABEAAgADAAIAAAAcABEAAgACAAMAAAAbABEAAgACAAMAAAAaABEAAgACAAMAAAAZABEAAgACAAMAAAAYABEAAgACAAMAAAAXABEAAgACAAMAAAAdABAAAgAAAAEAAAAdAA8AAgAAAAEAAAAdAA4AAgAAAAEAAAAdAA0AAgAHAAIAAAAdAAwAAgALAAIAAAAdAAsAAgALAAIAAAAdAAoAAgALAAIAAAAdAAkAAgALAAIAAAAdAAgAAgALAAIAAAAdAAcAAgALAAIAAAAdAAYAAgALAAIAAAAdAAUAAgALAAIAAAAdAAQAAgALAAIAAAAdAAMAAgALAAIAAAAdAAIAAgALAAIAAAAdAAEAAgALAAIAAAAdAAAAAgALAAAAAAAcAAAAAgAKAAAAAAAbAAAAAgAKAAAAAAAaAAAAAgAKAAAAAAAZAAAAAgAKAAAAAAAYAAAAAgAKAAAAAAAXAAAAAgAKAAAAAAAWAAAAAgAKAAAAAAAVAAAAAgAKAAAAAAAUAAAAAgAKAAAAAAATAAAAAgAKAAAAAAASAAAAAgAKAAAAAAARAAAAAgAKAAAAAAAQAAAAAgAKAAAAAAAPAAAAAgAKAAAAAAAOAAAAAgAKAAAAAAANAAAAAgAKAAAAAAAMAAAAAgAKAAAAAAALAAAAAgAKAAAAAAAKAAAAAgAKAAAAAAAKAAEAAgAJAAMAAAAJAAEAAgAJAAMAAAAIAAEAAgAJAAMAAAAHAAEAAgAJAAMAAAAGAAEAAgAJAAMAAAAFAAEAAgAJAAMAAAAEAAEAAgAJAAMAAAADAAEAAgAJAAMAAAACAAEAAgAJAAMAAAACAAAAAgAKAAAAAAABAAAAAgAKAAAAAAAAAAAAAgAIAAAAAAADAAAAAgAKAAAAAAAEAAAAAgAKAAAAAAAFAAAAAgAKAAAAAAAGAAAAAgAKAAAAAAAHAAAAAgAKAAAAAAAIAAAAAgAKAAAAAAAJAAAAAgAKAAAAAAAAAAEAAgAEAAIAAAAAAAIAAgAAAAEAAAAAAAMAAgAAAAEAAAAAAAQAAgAAAAEAAAAAAAUAAgAAAAEAAAAAAAYAAgAAAAEAAAAAAAcAAgABAAEAAAAAAAgAAgAAAAEAAAAAAAkAAgAAAAEAAAAAAAoAAgAAAAEAAAAAAAsAAgAAAAEAAAAAAAwAAgAAAAEAAAAAAA0AAgAAAAEAAAAAAA4AAgAAAAEAAAAAAA8AAgAAAAEAAAAAABAAAgAAAAEAAAAAABEAAgABAAIAAAABABEAAgACAAMAAAACABEAAgACAAMAAAADABEAAgACAAMAAAAEABEAAgACAAMAAAAFABEAAgACAAMAAAAGABEAAgACAAMAAAAHABEAAgACAAMAAAAIABEAAgACAAMAAAAJABEAAgAFAAMAAAAKABEAAgAJAAMAAAALABEAAgAGAAMAAAAMABEAAgACAAMAAAANABEAAgACAAMAAAAOABEAAgACAAMAAAAQABEAAgACAAMAAAARABEAAgACAAMAAAASABEAAgAFAAMAAAATABEAAgAGAAMAAAAUABEAAgACAAMAAAAVABEAAgACAAMAAAAWABEAAgACAAMAAAAPABEAAgACAAMAAAALABAAAgALAAIAAAALAA8AAgALAAIAAAALAA0AAgALAAIAAAALAA4AAgALAAIAAAASAA0AAgAIAAAAAAASAA4AAgAIAAEAAAASAA8AAgAIAAEAAAASABAAAgAIAAEAAAATABAAAgALAAIAAAATAA8AAgALAAIAAAATAA4AAgALAAIAAAATAA0AAgALAAAAAAAKAA0AAgAJAAIAAAAKAA4AAgAJAAIAAAAKAA8AAgAJAAIAAAAKABAAAgAJAAIAAAAcAA0AAgAJAAMAAAAbAA0AAgAJAAMAAAAaAA0AAgAFAAMAAAAZAA0AAgACAAMAAAAVAAgAAgAJAAIAAAAWAAgAAgAJAAIAAAAXAAgAAgALAAIAAAAaAAgAAgAIAAEAAAAbAAgAAgAJAAIAAAAbAAkAAgAJAAIAAAAcAAkAAgAJAAIAAAAaAAkAAgAIAAEAAAAXAAkAAgALAAMAAAAWAAkAAgAJAAMAAAAcAAgAAgAJAAIAAAAVAAkAAgAJAAMAAAAYAA0AAgACAAMAAAAXAA0AAgACAAMAAAAWAA0AAgABAAMAAAAaAAwAAgAIAAEAAAAaAAsAAgAIAAEAAAAaAAoAAgAIAAEAAAAbAAoAAgAJAAIAAAAbAAsAAgAJAAIAAAAbAAwAAgAJAAIAAAAcAAsAAgAJAAIAAAAcAAoAAgAJAAIAAAAcAAwAAgAJAAIAAAALAAwAAgALAAIAAAAKAAwAAgAFAAEAAAAVAAcAAgAJAAIAAAAVAAYAAgAKAAAAAAAXAAEAAgAJAAMAAAAYAAEAAgAJAAMAAAAZAAEAAgAJAAMAAAAaAAEAAgAJAAMAAAAbAAEAAgAJAAMAAAAcAAEAAgAFAAIAAAAWAAYAAgAKAAAAAAAWAAcAAgAJAAIAAAAXAAcAAgALAAIAAAAXAAYAAgALAAAAAAAaAAYAAgAIAAAAAAAbAAYAAgAKAAAAAAAbAAcAAgAJAAIAAAAcAAQAAgAIAAEAAAAcAAMAAgAIAAEAAAAcAAIAAgAIAAEAAAAcAAUAAgAIAAEAAAAcAAYAAgAFAAEAAAAcAAcAAgAJAAIAAAAaAAcAAgAIAAEAAAAJAA4AAgAIAAEAAAAJAA8AAgAIAAEAAAAJAA0AAgAFAAIAAAAJAAwAAgAKAAAAAAAJABAAAgAIAAEAAAAUAAkAAgAJAAMAAAAUAAgAAgAJAAIAAAAUAAcAAgAJAAIAAAAUAAYAAgAKAAAAAAANAAEAAgAJAAMAAAAOAAEAAgAJAAMAAAAMAAEAAgAJAAMAAAALAAEAAgAJAAMAAAAPAAEAAgAJAAMAAAAQAAEAAgAJAAMAAAARAAEAAgAJAAMAAAASAAEAAgAJAAMAAAATAAEAAgAJAAMAAAAUAAEAAgAJAAMAAAAVAAEAAgAJAAMAAAAWAAEAAgAJAAMAAAABAAEAAgAJAAMAAAAFAA4AAgALAAMAAAAHAA0AAgAJAAMAAAAIAA0AAgAJAAMAAAAIAAwAAgAKAAAAAAAHAAwAAgAKAAAAAAAGAAwAAgAKAAAAAAAFAAwAAgAKAAAAAAAFAA0AAgAGAAIAAAAEAA0AAgAIAAEAAAAGAA0AAgAJAAMAAAAEAAwAAgAIAAAAAAAEAA4AAgAIAAMAAAAKAAsAAgAIAAEAAAAKAAoAAgAIAAEAAAAKAAkAAgAIAAEAAAALAAkAAgALAAIAAAALAAgAAgALAAIAAAAKAAgAAgAIAAEAAAALAAsAAgALAAIAAAALAAoAAgALAAIAAAAKAAcAAgAIAAEAAAALAAcAAgALAAIAAAAKAAYAAgAIAAEAAAALAAYAAgALAAIAAAALAAUAAgALAAAAAAAKAAUAAgAIAAAAAAAGAAcAAgADAAMAAAAFAAcAAgACAAMAAAAEAAcAAgACAAMAAAADAAcAAgACAAMAAAACAAcAAgACAAMAAAABAAcAAgACAAMAAAATAAYAAgAIAAAAAAATAAcAAgAIAAEAAAATAAgAAgAIAAEAAAATAAkAAgAIAAMAAAA=")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_kfb4c")]
+position = Vector2(589, 540)
+detection_range = 180.0
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("12_kfb4c")]
+position = Vector2(285, 158)
+detection_range = 180.0
+
+[node name="Light" parent="." instance=ExtResource("6_qt7kc")]
+position = Vector2(974, 471)
+
+[node name="Light2" parent="." instance=ExtResource("6_qt7kc")]
+position = Vector2(786, 584)
+rotation = 0.856957
+
+[node name="Light3" parent="." instance=ExtResource("6_qt7kc")]
+position = Vector2(722, 254)
+rotation = -0.785398
+
+[node name="Light4" parent="." instance=ExtResource("6_qt7kc")]
+position = Vector2(375, 224)
+rotation = -0.785398
+scale = Vector2(1, 1)
+
+[node name="Light5" parent="." instance=ExtResource("6_qt7kc")]
+position = Vector2(50, 403)
+rotation = 0.785398
+scale = Vector2(1, 1)
+
+[node name="Player" parent="." instance=ExtResource("7_jsw7a")]
+position = Vector2(1070, 623)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1.59999, -16.8)
+scale = Vector2(0.8, 0.8)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+drag_bottom_margin = 0.0
+
+[node name="Vidrio" parent="." instance=ExtResource("8_eo0ex")]
+position = Vector2(327, 278)
+rotation = 1.5708
+
+[node name="Door" parent="." instance=ExtResource("9_qvdhf")]
+position = Vector2(290, 605)
+
+[node name="level_pause" parent="." instance=ExtResource("10_sibk2")]
+
+[node name="Vidrio2" parent="." instance=ExtResource("8_eo0ex")]
+position = Vector2(94, 462)
+rotation = 1.5708
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(600, 50)
+transform = Transform2D(1, 0, 0, 1, 600, 50)
+
+[node name="Healthbar" parent="CanvasLayer" instance=ExtResource("11_bjdha")]
+anchors_preset = -1
+anchor_top = 0.000520871
+anchor_bottom = 0.000520871
+offset_top = -0.337524
+offset_bottom = -0.337524
+scale = Vector2(1.5, 1.5)
+metadata/_edit_use_anchors_ = true

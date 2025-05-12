@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxk0metx2sbwb"]
+
+[ext_resource type="Script" uid="uid://h7u1ypmgplpb" path="res://scenes/player/teleport_particle.gd" id="1_ih2l7"]
+[ext_resource type="Texture2D" uid="uid://beon0tlk4jajr" path="res://assets/particles/particles.png" id="2_3iic8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ih2l7"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 6
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_ih2l7"]
+_data = [Vector2(0.00717704, 0.779963), 0.0, 0.0, 0, 0, Vector2(0.217703, 0.149588), 0.0, 0.0, 0, 0, Vector2(0.602871, 0.0247028), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3iic8"]
+curve = SubResource("Curve_ih2l7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3iic8"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = -360.0
+angle_max = 360.0
+spread = 180.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, 0, 0)
+damping_max = 15.0
+color = Color(0.0430391, 0.0430392, 0.0430392, 1)
+alpha_curve = SubResource("CurveTexture_3iic8")
+
+[node name="TeleportParticle" type="Node2D"]
+script = ExtResource("1_ih2l7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ih2l7")
+emitting = false
+texture = ExtResource("2_3iic8")
+lifetime = 0.9
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_3iic8")
