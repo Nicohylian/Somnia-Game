@@ -1,5 +1,6 @@
 class_name Shadow
 extends Node2D
+@onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 
 
@@ -11,3 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	
+func change_animation(title: String) -> void:
+	animated_sprite_2d.play(title)

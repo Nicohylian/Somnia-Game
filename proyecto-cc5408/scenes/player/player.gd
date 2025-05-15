@@ -96,8 +96,10 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			if velocity.length() == 0:
 				animated_sprite.play("idle")
+				shadow.change_animation("idle")
 			else:
 				animated_sprite.play("run")
+				shadow.change_animation("run")
 
 	# SOMBRA
 	if shadow_direction.is_colliding():
