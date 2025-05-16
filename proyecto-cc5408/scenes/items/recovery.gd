@@ -18,3 +18,4 @@ func _apply_effect(body: Node2D) -> void:
 		var padre = get_parent()
 		if padre is Level:
 			padre.time_left += 1.0
+			queue_free()

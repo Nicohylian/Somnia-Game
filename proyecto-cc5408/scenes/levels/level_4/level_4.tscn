@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://nl2qxlvhwm5u"]
+[gd_scene load_steps=14 format=4 uid="uid://nl2qxlvhwm5u"]
 
 [ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_kfb4c"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="2_vbokg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b6lae70ry3nef" path="res://scenes/UI/pause_menu/level_pause.tscn" id="10_sibk2"]
 [ext_resource type="PackedScene" uid="uid://cegfpy7q3ebdd" path="res://scenes/UI/healthbar/healthbar.tscn" id="11_bjdha"]
 [ext_resource type="PackedScene" uid="uid://da1j2bxxd52dm" path="res://scenes/enemies/enemy1/enemy.tscn" id="12_kfb4c"]
+[ext_resource type="PackedScene" uid="uid://bmpbi3c8015a" path="res://scenes/items/recovery.tscn" id="13_yedyb"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_kfb4c")
@@ -98,3 +99,6 @@ offset_top = -0.337524
 offset_bottom = -0.337524
 scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
+
+[node name="recovery" parent="." instance=ExtResource("13_yedyb")]
+position = Vector2(844, 204)
