@@ -126,6 +126,7 @@ animations = [{
 script = ExtResource("1_vll7a")
 
 [node name="pivot" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pivot"]
 unique_name_in_owner = true

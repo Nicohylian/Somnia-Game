@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://nl2qxlvhwm5u"]
 
-[ext_resource type="Script" uid="uid://bl0anehhasddo" path="res://scenes/levels/level_4/level_4.gd" id="1_1hsbt"]
+[ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_kfb4c"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="2_vbokg"]
 [ext_resource type="Texture2D" uid="uid://d3gicdjiefg83" path="res://assets/backgrounds/n01l02.png" id="3_8iulw"]
 [ext_resource type="Texture2D" uid="uid://b3qq4r3aytrqw" path="res://assets/backgrounds/n01l03.png" id="4_u5r15"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://da1j2bxxd52dm" path="res://scenes/enemies/enemy1/enemy.tscn" id="12_kfb4c"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_1hsbt")
+script = ExtResource("1_kfb4c")
+total_time = 30.0
+metadata/_custom_type_script = "uid://dgixme0nntagb"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(584.09, 325.615)

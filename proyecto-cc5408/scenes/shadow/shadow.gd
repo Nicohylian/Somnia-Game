@@ -1,6 +1,9 @@
 class_name Shadow
 extends Node2D
+
+
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
+@onready var pivot: Node2D = %pivot
 
 
 
@@ -16,3 +19,8 @@ func _process(delta: float) -> void:
 	
 func change_animation(title: String) -> void:
 	animated_sprite_2d.play(title)
+
+func change_direction(dir: int) -> void:
+	pivot.scale.x = dir
+	
+	

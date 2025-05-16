@@ -1,3 +1,4 @@
+class_name Level
 extends Node2D
 
 @onready var player: Player = $Player
@@ -8,10 +9,11 @@ extends Node2D
 @onready var bar_sprite: TextureProgressBar = $CanvasLayer/Healthbar/Barra
 
 var lights: Array
-var total_time := 8.0  # Tiempo total en segundos
-var time_left := total_time
+@export var total_time: float  # Tiempo total en segundos
+var time_left: float
 
 func _ready() -> void:
+	time_left = total_time
 	if MusicManager.current_stream != preload("res://audios/themes/theme 1_org.ogg"):
 		MusicManager.play_music(preload("res://audios/themes/theme 1_org.ogg"))
 	lights = get_tree().get_nodes_in_group("Light")

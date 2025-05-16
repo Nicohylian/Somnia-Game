@@ -90,6 +90,7 @@ func _physics_process(delta: float) -> void:
 	# FLIP DEL SPRITE
 	if input_dir != 0:
 		pivot.scale.x = sign(input_dir)
+		shadow.change_direction(sign(input_dir))
 
 	# ANIMACIONES
 	if not is_teleporting:
