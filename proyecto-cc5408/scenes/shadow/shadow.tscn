@@ -132,5 +132,52 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_au8y5")
-animation = &"run"
-frame_progress = 0.212591
+animation = &"idle"
+
+[node name="center" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Down1" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(4, -3)
+target_position = Vector2(0, 15)
+
+[node name="Down2" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(-4, -3)
+target_position = Vector2(0, 15)
+
+[node name="Down3" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(0, -3)
+target_position = Vector2(0, 15)
+
+[node name="Up1" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(3, 3)
+target_position = Vector2(0, -15)
+
+[node name="Up2" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(-3, 3)
+target_position = Vector2(0, -15)
+
+[node name="Left1" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(1, 3)
+target_position = Vector2(-9, 0)
+
+[node name="Left2" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(1, -3)
+target_position = Vector2(-9, 0)
+
+[node name="Right1" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(-2, 3)
+target_position = Vector2(10, 0)
+
+[node name="Right2" type="RayCast2D" parent="center"]
+unique_name_in_owner = true
+position = Vector2(-2, -3)
+target_position = Vector2(10, 0)

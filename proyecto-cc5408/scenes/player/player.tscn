@@ -238,7 +238,7 @@ position = Vector2(0, 1)
 target_position = Vector2(1200, 0)
 
 [node name="Shadow" parent="." instance=ExtResource("2_fvtld")]
-position = Vector2(1194, 0)
+position = Vector2(820, 0)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(0, 1)

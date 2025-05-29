@@ -21,7 +21,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_jrhk8")
-total_time = 10.0
+total_time = 1000.0
 metadata/_custom_type_script = "uid://dgixme0nntagb"
 
 [node name="N01l01" type="Sprite2D" parent="."]
@@ -96,7 +96,7 @@ position = Vector2(1003, 450)
 position = Vector2(616, 386)
 metadata/_edit_group_ = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("12_jrhk8")]
+[node name="level_pause" parent="." instance=ExtResource("12_jrhk8")]
 
 [node name="Light3" parent="." instance=ExtResource("8_n74k2")]
 unique_name_in_owner = true
@@ -136,13 +136,6 @@ position = Vector2(537, 24)
 unique_name_in_owner = true
 position = Vector2(99, 465)
 
-[node name="Healthbar" parent="Player" instance=ExtResource("14_j7bvy")]
-offset_left = 29.6
-offset_top = -147.2
-offset_right = 29.6
-offset_bottom = -147.2
-metadata/_edit_use_anchors_ = true
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
 
@@ -151,4 +144,13 @@ stream = ExtResource("15_r8shl")
 volume_db = -3.628
 autoplay = true
 
-[editable path="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Healthbar" parent="CanvasLayer" instance=ExtResource("14_j7bvy")]
+offset_left = 136.0
+offset_top = 281.0
+offset_right = 136.0
+offset_bottom = 281.0
+metadata/_edit_use_anchors_ = true
+
+[editable path="level_pause"]

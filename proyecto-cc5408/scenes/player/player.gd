@@ -105,14 +105,14 @@ func _physics_process(delta: float) -> void:
 	# SOMBRA
 	if shadow_direction.is_colliding():
 		shadow.show()
-		shadow.global_position = shadow_direction.get_collision_point()
+		shadow.move_to_point(shadow_direction.get_collision_point()) 
 	else:
 		shadow.visible = false
 		shadow.global_position = shadow_direction.target_position
 
 func _on_timer_timeout() -> void:
 	spawn_teleport_particles()
-	translate((shadow.global_position - global_position) - Vector2(15, 0).rotated(direction1.angle()))
+	translate((shadow.global_position - global_position))
 	velocity = Vector2.ZERO
 	is_teleporting = false
 
