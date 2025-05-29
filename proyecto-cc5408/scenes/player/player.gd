@@ -31,6 +31,11 @@ const JUMP_VELOCITY = -350.0
 
 func _ready() -> void:
 	is_teleporting = false
+	shadow.cant_teleport.connect(func(): can_teleport = false)
+	shadow.can_teleport.connect(func(): can_teleport = true)
+
+func _process(delta: float) -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	if is_teleporting:

@@ -14,14 +14,20 @@ extends Node2D
 @onready var left_2: RayCast2D = %Left2
 @onready var right_1: RayCast2D = %Right1
 @onready var right_2: RayCast2D = %Right2
+@onready var area_segura: Area2D = %AreaSegura
 
 @onready var down_3: RayCast2D = %Down3
+
+signal cant_teleport
+signal can_teleport
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	area_segura.body_entered.connect(func(body: Node2D): cant_teleport.emit())
+	area_segura.body_exited.connect(func(body: Node2D): can_teleport.emit())
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,7 +50,6 @@ func move_to_point(pos: Vector2) -> void:
 		final = final + Vector2(0, -algo1)
 	elif(up_1.is_colliding() && up_2.is_colliding()):
 		var algo2 = 13 - (up_1.get_collision_point().y - center.get_global_position().y )
-		Debug.log(algo2)
 		final = final + Vector2(0, algo2)
 	if(left_1.is_colliding() && left_2.is_colliding()):
 		var algo3 = 8 + (left_1.get_collision_point().x - center.get_global_position().x)
@@ -56,7 +61,8 @@ func move_to_point(pos: Vector2) -> void:
 		
 	global_position = final
 	
-	
+
+		
 	
 	
 	
