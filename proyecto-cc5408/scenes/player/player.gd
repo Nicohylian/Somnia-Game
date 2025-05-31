@@ -111,7 +111,8 @@ func _physics_process(delta: float) -> void:
 	# SOMBRA
 	if shadow_direction.is_colliding():
 		shadow.show()
-		shadow.move_to_point(shadow_direction.get_collision_point()) 
+		var espacio = shadow_direction.get_collision_normal().normalized()*15
+		shadow.move_to_point(shadow_direction.get_collision_point() + espacio) 
 	else:
 		shadow.visible = false
 		shadow.global_position = shadow_direction.target_position
