@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $pivot/AnimatedSprite2D
 @onready var teleport_timer: Timer = $Timer
 @onready var tp_cooldown_timer: Timer = $TeleportCooldownTimer
+@onready var camera_2d: Camera2D = $Camera2D
 
 @export var direction1: Vector2 = Vector2(1, 0)
 @export var player_scene: PackedScene
@@ -137,3 +138,12 @@ func spawn_teleport_particles() -> void:
 
 func _on_teleport_cooldown_timer_timeout() -> void:
 	can_teleport = true
+
+func death() -> void:
+	var current_position = camera_2d.global_position
+	remove_child(camera_2d)
+	get_parent().add_child(camera_2d)
+	camera_2d.global_position = current_position
+	scale.y = 0.1
+	translate(Vector2(0,15))
+	queue_free()

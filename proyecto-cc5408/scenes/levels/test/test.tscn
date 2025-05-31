@@ -108,11 +108,11 @@ position = Vector2(48, 50)
 [node name="Node2D2" parent="." instance=ExtResource("12_gm488")]
 position = Vector2(118, 98)
 
-[node name="Node2D3" parent="." instance=ExtResource("12_gm488")]
-position = Vector2(255, 42)
-
 [node name="Node2D4" parent="." instance=ExtResource("12_gm488")]
 position = Vector2(421, 67)
+
+[node name="Node2D3" parent="Node2D4" instance=ExtResource("12_gm488")]
+position = Vector2(-166, -25)
 
 [node name="Node2D5" parent="." instance=ExtResource("12_gm488")]
 position = Vector2(666, 55)
@@ -135,9 +135,6 @@ position = Vector2(537, 24)
 [node name="Player" parent="." instance=ExtResource("13_kay4s")]
 unique_name_in_owner = true
 position = Vector2(99, 465)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_r8shl")

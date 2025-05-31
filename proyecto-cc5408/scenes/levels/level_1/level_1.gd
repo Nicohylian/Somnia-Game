@@ -8,6 +8,7 @@ extends Node2D
 @onready var pause_menu: MarginContainer = $level_pause/PauseMenu
 @onready var bar_sprite: TextureProgressBar = $CanvasLayer/Healthbar/Barra
 
+
 var lights: Array
 @export var total_time: float  # Tiempo total en segundos
 var time_left: float
@@ -46,6 +47,8 @@ func _win_level(body: Node2D) -> void:
 		LevelManager.go_to_next_level()
 
 func _lose_level() -> void:
+	player.death()
+	
 	_show_end_label("You Lose")
 
 func _show_end_label(text: String) -> void:

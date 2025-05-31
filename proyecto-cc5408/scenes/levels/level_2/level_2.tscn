@@ -50,13 +50,6 @@ position = Vector2(257, 319)
 [node name="Player" parent="." instance=ExtResource("6_slc34")]
 position = Vector2(81, 210)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-1.59999, -16.8)
-scale = Vector2(0.8, 0.8)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-drag_bottom_margin = 0.0
-
 [node name="Vidrio" parent="." instance=ExtResource("8_ytkhg")]
 position = Vector2(366, 243)
 rotation = 1.5708
