@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://deecbngh7pw64"]
+[gd_scene load_steps=14 format=4 uid="uid://deecbngh7pw64"]
 
 [ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_iup6o"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="1_ugaie"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://un2s82v6oow7" path="res://scenes/translucid_items/vidrio.tscn" id="8_ytkhg"]
 [ext_resource type="PackedScene" uid="uid://bebvcvfkiq8hs" path="res://scenes/totem/totem.tscn" id="9_odxlg"]
 [ext_resource type="PackedScene" uid="uid://b6lae70ry3nef" path="res://scenes/UI/pause_menu/level_pause.tscn" id="10_issku"]
+[ext_resource type="PackedScene" uid="uid://c1c86c41kpvcv" path="res://scenes/enemies/enemy 2/enemy 2.tscn" id="13_ses5c"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_iup6o")
@@ -75,3 +76,6 @@ offset_top = -0.337524
 offset_bottom = -0.337524
 scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
+
+[node name="Enemy2" parent="." instance=ExtResource("13_ses5c")]
+position = Vector2(59, 520)

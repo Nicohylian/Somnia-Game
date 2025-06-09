@@ -34,6 +34,8 @@ func _ready() -> void:
 	is_teleporting = false
 	shadow.cant_teleport.connect(func(): can_teleport = false)
 	shadow.can_teleport.connect(func(): can_teleport = true)
+	# Conectar señal para manejar fin de animación
+	animated_sprite.animation_finished.connect(_on_animation_finished)
 
 func _process(delta: float) -> void:
 	pass
@@ -62,6 +64,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_buffer_timer = 0
 		coyote_timer = 0
+		# Animación de salto
+		animated_sprite.play("jump")
+		shadow.change_animation("jump")
 
 	# SALTO VARIABLE (jump cut)
 	if not Input.is_action_pressed("jump") and velocity.y < 0:
@@ -98,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		pivot.scale.x = sign(input_dir)
 		shadow.change_direction(sign(input_dir))
 
-	# ANIMACIONES
+	# ANIMACIONES cuando no teletransportando
 	if not is_teleporting:
 		if is_on_floor():
 			if velocity.length() == 0:
@@ -111,8 +116,8 @@ func _physics_process(delta: float) -> void:
 	# SOMBRA
 	if shadow_direction.is_colliding():
 		shadow.show()
-		var espacio = shadow_direction.get_collision_normal().normalized()*15
-		shadow.move_to_point(shadow_direction.get_collision_point() + espacio) 
+		var espacio = shadow_direction.get_collision_normal().normalized() * 15
+		shadow.move_to_point(shadow_direction.get_collision_point() + espacio)
 	else:
 		shadow.visible = false
 		shadow.global_position = shadow_direction.target_position
@@ -141,10 +146,22 @@ func _on_teleport_cooldown_timer_timeout() -> void:
 	can_teleport = true
 
 func death() -> void:
+	# Reproducir animación de muerte
+	animated_sprite.play("death")
+	shadow.change_animation("death")
+
+	# Reubicar cámara antes de liberar
 	var current_position = camera_2d.global_position
 	remove_child(camera_2d)
 	get_parent().add_child(camera_2d)
 	camera_2d.global_position = current_position
+
+	# Ajuste visual previo a la eliminación
 	scale.y = 0.1
-	translate(Vector2(0,15))
-	queue_free()
+	translate(Vector2(0, 15))
+
+	# La eliminación se gestiona en _on_animation_finished()
+
+func _on_animation_finished() -> void:
+	if animated_sprite.animation == "death":
+		queue_free()
