@@ -12,8 +12,10 @@ extends Node2D
 var lights: Array
 @export var total_time: float  # Tiempo total en segundos
 var time_left: float
+var player_live:= true
 
 func _ready() -> void:
+	player.defeat.connect(_lose_level)
 	time_left = total_time
 	if MusicManager.current_stream != preload("res://audios/themes/theme 1_org.ogg"):
 		MusicManager.play_music(preload("res://audios/themes/theme 1_org.ogg"))
@@ -22,6 +24,8 @@ func _ready() -> void:
 	update_healthbar()
 
 func _process(delta: float) -> void:
+	if !player_live:
+		return
 	# 1. Encuentra la luz más cercana
 	var closest_light: Light = null
 	for light in lights:
@@ -47,6 +51,7 @@ func _win_level(body: Node2D) -> void:
 		LevelManager.go_to_next_level()
 
 func _lose_level() -> void:
+	player_live = false
 	player.death()
 	
 	_show_end_label("You Lose")

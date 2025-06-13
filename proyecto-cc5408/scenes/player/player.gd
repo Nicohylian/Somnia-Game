@@ -16,6 +16,7 @@ var teleport_particle_scene := preload("res://scenes/player/TeleportParticle.tsc
 # Estados
 var is_teleporting := false
 var can_teleport := true
+var live:= true
 
 # Salto
 var coyote_time := 0.15
@@ -30,6 +31,9 @@ const FRICTION = 1200.0
 const TURN_BRAKE = 3000.0
 const JUMP_VELOCITY = -350.0
 
+# Señales
+signal defeat
+
 func _ready() -> void:
 	is_teleporting = false
 	shadow.cant_teleport.connect(func(): can_teleport = false)
@@ -41,6 +45,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	if !live:
+		return
 	if is_teleporting:
 		return
 
@@ -146,6 +152,7 @@ func _on_teleport_cooldown_timer_timeout() -> void:
 	can_teleport = true
 
 func death() -> void:
+	live = false
 	# Reproducir animación de muerte
 	animated_sprite.play("death")
 	shadow.change_animation("death")
@@ -156,12 +163,15 @@ func death() -> void:
 	get_parent().add_child(camera_2d)
 	camera_2d.global_position = current_position
 
-	# Ajuste visual previo a la eliminación
-	scale.y = 0.1
-	translate(Vector2(0, 15))
+	
 
 	# La eliminación se gestiona en _on_animation_finished()
 
 func _on_animation_finished() -> void:
 	if animated_sprite.animation == "death":
+		# Ajuste visual previo a la eliminación
+		defeat.emit()
+		
+		scale.y = 0.1
+		translate(Vector2(0, 15))
 		queue_free()

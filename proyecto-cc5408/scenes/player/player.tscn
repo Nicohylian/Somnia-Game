@@ -266,7 +266,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3j4b4")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 18.0
 }, {
@@ -440,8 +440,6 @@ shape = SubResource("CapsuleShape2D_hjaqi")
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_42h83")
 animation = &"death"
-frame = 5
-frame_progress = 0.295308
 
 [node name="ShadowDirection" type="RayCast2D" parent="."]
 unique_name_in_owner = true
