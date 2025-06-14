@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ceh7tpq28bjol"]
+[gd_scene load_steps=19 format=4 uid="uid://ceh7tpq28bjol"]
 
 [ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_jrhk8"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="2_ff6ho"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://kf3nir6ir55k" path="res://scenes/player/player.tscn" id="13_kay4s"]
 [ext_resource type="PackedScene" uid="uid://cegfpy7q3ebdd" path="res://scenes/UI/healthbar/healthbar.tscn" id="14_j7bvy"]
 [ext_resource type="AudioStream" uid="uid://bx1hh52jvsqwy" path="res://audios/themes/theme 1_org.ogg" id="15_r8shl"]
+[ext_resource type="PackedScene" uid="uid://c1c86c41kpvcv" path="res://scenes/enemies/enemy 2/enemy 2.tscn" id="17_pxtd8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1764"]
 
@@ -82,6 +83,9 @@ position = Vector2(308, 460)
 [node name="Door" parent="." instance=ExtResource("9_si7kk")]
 unique_name_in_owner = true
 position = Vector2(981, 255)
+
+[node name="Enemy2" parent="." instance=ExtResource("17_pxtd8")]
+position = Vector2(162, 326)
 
 [node name="Enemigo" parent="." instance=ExtResource("10_pn65j")]
 position = Vector2(102, 294)

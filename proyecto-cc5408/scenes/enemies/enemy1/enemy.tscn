@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://da1j2bxxd52dm"]
+[gd_scene load_steps=5 format=3 uid="uid://da1j2bxxd52dm"]
 
 [ext_resource type="Script" uid="uid://wycuunbr3lp8" path="res://scenes/enemies/enemy1/enemy.gd" id="1_iifgy"]
 [ext_resource type="SpriteFrames" uid="uid://dc4mi10to48aj" path="res://scenes/enemies/enemy1/enemy_fixed.tres" id="2_4gyqm"]
@@ -7,7 +7,11 @@
 radius = 11.9867
 height = 45.8547
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pmmly"]
+radius = 17.0
+height = 50.0
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_iifgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,3 +28,10 @@ frame_progress = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(21, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pmmly")

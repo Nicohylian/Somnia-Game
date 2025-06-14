@@ -11,8 +11,10 @@ extends CharacterBody2D
 
 var original_scale := Vector2.ONE
 var is_chasing_now := false
+@onready var area_2d: Area2D = $Area2D
 
 func _ready():
+	area_2d.body_entered.connect(_on_body_entered)
 	original_scale = animated_sprite.scale
 	animated_sprite.visible = true
 	animated_sprite.modulate.a = 1.0
@@ -48,3 +50,7 @@ func _physics_process(delta):
 		is_chasing_now = false
 		velocity = Vector2.ZERO
 		animated_sprite.play("IDLE")
+		
+func _on_body_entered(body):
+	if body is Player:  # O usa el nombre de tu clase de jugador si cambiaste el class_name
+		body.death()  # Llama a la función de muerte del jugador
