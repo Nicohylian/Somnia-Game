@@ -186,6 +186,8 @@ radius = 6.0
 height = 26.0
 
 [node name="Enemy2" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_u7b1h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -193,7 +195,7 @@ position = Vector2(2, -4)
 scale = Vector2(0.19, 0.19)
 sprite_frames = SubResource("SpriteFrames_b52m1")
 animation = &"idle"
-frame_progress = 0.257095
+frame_progress = 0.805079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -3)
@@ -204,6 +206,7 @@ shape = SubResource("CapsuleShape2D_u7b1h")
 [node name="RayCastFront" type="RayCast2D" parent="."]
 position = Vector2(6, -2)
 target_position = Vector2(0, 13)
+collision_mask = 3
 collide_with_areas = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -218,3 +221,4 @@ shape = SubResource("CapsuleShape2D_5m7r3")
 unique_name_in_owner = true
 position = Vector2(3, -2)
 target_position = Vector2(11, 0)
+collision_mask = 3
