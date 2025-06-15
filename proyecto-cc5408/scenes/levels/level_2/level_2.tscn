@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://deecbngh7pw64"]
+[gd_scene load_steps=15 format=4 uid="uid://deecbngh7pw64"]
 
 [ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_iup6o"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="1_ugaie"]
 [ext_resource type="Texture2D" uid="uid://d3gicdjiefg83" path="res://assets/backgrounds/n01l02.png" id="2_iup6o"]
+[ext_resource type="PackedScene" uid="uid://dn4xmir805gjg" path="res://scenes/backgrounds/blue_cave/blue_cave.tscn" id="2_up0v7"]
 [ext_resource type="Texture2D" uid="uid://b3qq4r3aytrqw" path="res://assets/backgrounds/n01l03.png" id="3_ses5c"]
 [ext_resource type="PackedScene" uid="uid://cr0qvrewh7not" path="res://scenes/tilemaps/tilemap_blue.tscn" id="4_up0v7"]
 [ext_resource type="PackedScene" uid="uid://bfwn07d8i2mqo" path="res://scenes/light/light.tscn" id="5_4xau6"]
@@ -19,17 +20,25 @@ script = ExtResource("1_iup6o")
 total_time = 4.0
 metadata/_custom_type_script = "uid://dgixme0nntagb"
 
+[node name="BlueCave" parent="." instance=ExtResource("2_up0v7")]
+offset = Vector2(20, 100)
+scale = Vector2(0.795, 0.795)
+transform = Transform2D(0.795, 0, 0, 0.795, 20, 100)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(584.09, 325.615)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_ugaie")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(579, 337.5)
 scale = Vector2(0.601042, 0.623148)
 texture = ExtResource("2_iup6o")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(581, 338)
 scale = Vector2(0.602083, 0.62037)
 texture = ExtResource("3_ses5c")
@@ -46,7 +55,7 @@ position = Vector2(51, 303)
 rotation = 0.856957
 
 [node name="recovery" parent="." instance=ExtResource("7_iup6o")]
-position = Vector2(257, 319)
+position = Vector2(257, 324)
 
 [node name="Player" parent="." instance=ExtResource("6_slc34")]
 position = Vector2(81, 210)

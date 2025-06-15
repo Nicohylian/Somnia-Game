@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn4xmir805gjg"]
+
+[ext_resource type="Texture2D" uid="uid://33liuraohue2" path="res://assets/backgrounds/blue_cave/blue_cave01.png" id="1_vosrb"]
+[ext_resource type="Texture2D" uid="uid://5up7qd74wtuw" path="res://assets/backgrounds/blue_cave/blue_cave02.png" id="2_lfymr"]
+[ext_resource type="Texture2D" uid="uid://bxfjj4vyp8jg3" path="res://assets/backgrounds/blue_cave/blue_cave04.png" id="3_a7o27"]
+[ext_resource type="Texture2D" uid="uid://cmcbawp82b1rf" path="res://assets/backgrounds/blue_cave/blue_cave05.png" id="4_7ji6p"]
+
+[node name="BlueCave" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(553, 347)
+texture = ExtResource("1_vosrb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(553, 347)
+texture = ExtResource("2_lfymr")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(553, 347)
+texture = ExtResource("3_a7o27")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+scale = Vector2(0.8, 0.8)
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(553, 347)
+texture = ExtResource("4_7ji6p")
