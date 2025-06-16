@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 50
+var speed = 40
 var direction = -1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var destiny: Vector2 = Vector2(1, 0)

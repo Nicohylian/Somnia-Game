@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://nl2qxlvhwm5u"]
+[gd_scene load_steps=17 format=4 uid="uid://nl2qxlvhwm5u"]
 
 [ext_resource type="Script" uid="uid://dgixme0nntagb" path="res://scenes/levels/level_1/level_1.gd" id="1_kfb4c"]
+[ext_resource type="PackedScene" uid="uid://dn4xmir805gjg" path="res://scenes/backgrounds/blue_cave/blue_cave.tscn" id="2_a46op"]
 [ext_resource type="Texture2D" uid="uid://didmsrgabaxfo" path="res://assets/backgrounds/n01l01.png" id="2_vbokg"]
 [ext_resource type="Texture2D" uid="uid://d3gicdjiefg83" path="res://assets/backgrounds/n01l02.png" id="3_8iulw"]
 [ext_resource type="Texture2D" uid="uid://b3qq4r3aytrqw" path="res://assets/backgrounds/n01l03.png" id="4_u5r15"]
@@ -21,17 +22,24 @@ script = ExtResource("1_kfb4c")
 total_time = 30.0
 metadata/_custom_type_script = "uid://dgixme0nntagb"
 
+[node name="BlueCave" parent="." instance=ExtResource("2_a46op")]
+offset = Vector2(120, 50)
+transform = Transform2D(1, 0, 0, 1, 120, 50)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(584.09, 325.615)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_vbokg")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(579, 337.5)
 scale = Vector2(0.601042, 0.623148)
 texture = ExtResource("3_8iulw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(581, 338)
 scale = Vector2(0.602083, 0.62037)
 texture = ExtResource("4_u5r15")
@@ -96,7 +104,7 @@ scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="recovery" parent="." instance=ExtResource("13_yedyb")]
-position = Vector2(844, 204)
+position = Vector2(1038, 212)
 
 [node name="Pinchos" parent="." instance=ExtResource("14_6h3mm")]
 position = Vector2(537, 614)
