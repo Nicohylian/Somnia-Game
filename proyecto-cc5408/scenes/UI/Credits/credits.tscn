@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpi75tyw454np"]
+
+[ext_resource type="Script" uid="uid://cpgtau5q1l4rt" path="res://credits.gd" id="1_rku00"]
+[ext_resource type="Texture2D" uid="uid://70rpd4tkwilp" path="res://assets/UI/main_menu/bgimagemenu.png" id="2_6tjdx"]
+
+[sub_resource type="Theme" id="Theme_11ksw"]
+
+[node name="Credits" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rku00")
+
+[node name="Bgimagemenu" type="Sprite2D" parent="."]
+modulate = Color(0.321728, 0.321728, 0.321728, 1)
+position = Vector2(576, 319)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_6tjdx")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_11ksw")
+text = "Credits
+
+Assets by mvlstrom
+
+level design by blumine and nicohylian
+
+backgrounds by mvlstrom
+
+debuging by nicohylian
+
+particles effect by blumine and mvlstrom
+
+enemies by mvlstrom
+
+music by IA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back to menu"

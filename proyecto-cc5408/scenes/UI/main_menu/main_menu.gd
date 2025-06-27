@@ -10,6 +10,7 @@ func _ready() -> void:
 	LevelManager.current_level = 0
 	start.pressed.connect(func(): LevelManager.go_to_next_level())
 	select_level.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/UI/level_select_menu/levels_select_menu.tscn"))
+	credits.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/UI/Credits/credits.tscn"))
 	quit.pressed.connect(func(): get_tree().quit())
 
 
