@@ -12,18 +12,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	
 	if !raycast.is_colliding():
-		if destiny == Vector2(1,0):
-			destiny = Vector2(0,1)
-		elif destiny == Vector2(0,1):
-			destiny = Vector2(-1,0)
-		elif destiny == Vector2(-1,0):
-			destiny = Vector2(0,-1)
-		elif destiny == Vector2(0,-1):
-			destiny = Vector2(1,0)
+		destiny = raycast.target_position.normalized()
 		rotation = destiny.angle()
 		
 	if ray_cast_eye.is_colliding():
-		destiny = destiny.orthogonal()
+		destiny = -raycast.target_position.normalized()
 		rotation = destiny.angle()
 	
 	
