@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var speed := 100.0
+@export var speed := 60.0
 @export var boosted_speed := 180.0
 @export var detection_range := 150.0
 

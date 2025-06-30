@@ -52,9 +52,9 @@ tile_map_data = PackedByteArray("AAAfABIAAgALAAMAAAAfABEAAgALAAIAAAAfABAAAgALAAI
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Healthbar" parent="CanvasLayer" instance=ExtResource("9_q3dao")]
-offset_left = 531.0
-offset_top = 38.0
-offset_right = 531.0
-offset_bottom = 38.0
+offset_left = 540.0
+offset_top = 34.0
+offset_right = 540.0
+offset_bottom = 34.0
 
 [node name="level_pause" parent="." instance=ExtResource("10_e1avd")]
