@@ -14,7 +14,7 @@ func go_to_next_level():
 		get_tree().change_scene_to_file(levels[current_level])
 	else:
 		print("¡Juego completo!")
-		get_tree().change_scene_to_file("res://scenes/UI/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/UI/win_menu/win_menu.tscn")
 	current_level += 1
 
 func restart_current_level():

@@ -87,4 +87,4 @@ scale = Vector2(1.5, 1.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="Enemy2" parent="." instance=ExtResource("13_ses5c")]
-position = Vector2(59, 520)
+position = Vector2(59, 524)

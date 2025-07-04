@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7j1keis8c6fr"]
+
+[ext_resource type="Script" uid="uid://bgy382qerlxqq" path="res://scenes/UI/win_menu/win_menu.gd" id="1_55c3h"]
+[ext_resource type="Texture2D" uid="uid://70rpd4tkwilp" path="res://assets/UI/main_menu/bgimagemenu.png" id="1_h7v05"]
+
+[node name="Win menu" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -91.0
+offset_right = 94.5
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55c3h")
+
+[node name="Bgimagemenu" type="Sprite2D" parent="."]
+position = Vector2(94.5, 70)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("1_h7v05")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Congratulate
+Thank for play our game"
+horizontal_alignment = 1
+
+[node name="Global_time" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Global time:"
+horizontal_alignment = 1
+
+[node name="Best_time" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Best time: "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "
+
+press enter to continue"
+horizontal_alignment = 1
