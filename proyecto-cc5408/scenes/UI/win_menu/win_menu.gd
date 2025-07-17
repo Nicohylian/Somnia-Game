@@ -3,7 +3,7 @@ extends MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	SceneTransition.fade_in()
 	 # Replace with function body.
 
 

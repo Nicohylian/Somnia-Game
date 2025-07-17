@@ -9,7 +9,7 @@ height = 182.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oy888"]
 radius = 31.0
-height = 210.0
+height = 186.0
 
 [node name="Pinchos" type="StaticBody2D"]
 

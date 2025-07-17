@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 	pass
 
 func select_level(id: int) -> void:
-	LevelManager.current_level = id
-	LevelManager.go_to_next_level()
+	# Llama a la nueva función que creamos, pasándole el 'id' del botón.
+	LevelManager.go_to_specific_level(id)

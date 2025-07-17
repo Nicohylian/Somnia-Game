@@ -1,20 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://un2s82v6oow7"]
+[gd_scene load_steps=4 format=3 uid="uid://un2s82v6oow7"]
 
-[ext_resource type="Texture2D" uid="uid://xr33gf4rd3mi" path="res://icon.svg" id="1_2i7bg"]
+[ext_resource type="Texture2D" uid="uid://5fqqewfd0146" path="res://assets/glass/glass.png" id="1_2i7bg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2i7bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1764"]
+size = Vector2(21, 20)
 
 [node name="Vidrio" type="StaticBody2D"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.0823529, 0.831373, 0.854902, 1)
-self_modulate = Color(0, 0, 1, 0.552941)
-position = Vector2(0.999989, -3)
-scale = Vector2(0.1875, 0.96875)
+material = SubResource("CanvasItemMaterial_2i7bg")
+position = Vector2(-1.19209e-07, -5.96046e-08)
+scale = Vector2(0.164063, 0.9375)
 texture = ExtResource("1_2i7bg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_c1764")
+debug_color = Color(6.01634e-09, 0.1778, 0.213342, 0.42)

@@ -10,10 +10,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = -212.0
+offset_top = -165.0
+offset_right = 214.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -39,12 +39,16 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Levels"
+text = "Levels
+"
 
 [node name="LevelsContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-columns = 10
+size_flags_horizontal = 4
+size_flags_vertical = 4
+localize_numeral_system = false
+columns = 6
 
 [node name="LevelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
 unique_name_in_owner = true
@@ -77,8 +81,72 @@ script = ExtResource("2_3wg25")
 id = 3
 metadata/_custom_type_script = "uid://6yqf0thcsvin"
 
+[node name="LevelButton5" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+script = ExtResource("2_3wg25")
+id = 4
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton6" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "6"
+script = ExtResource("2_3wg25")
+id = 5
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton7" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "7"
+script = ExtResource("2_3wg25")
+id = 6
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton8" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8"
+script = ExtResource("2_3wg25")
+id = 7
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton9" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "9"
+script = ExtResource("2_3wg25")
+id = 8
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton10" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
+script = ExtResource("2_3wg25")
+id = 9
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton11" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "11"
+script = ExtResource("2_3wg25")
+id = 10
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
+[node name="LevelButton12" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/LevelsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12"
+script = ExtResource("2_3wg25")
+id = 11
+metadata/_custom_type_script = "uid://6yqf0thcsvin"
+
 [node name="Bgimagemenu" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(105, 84)
+position = Vector2(217, 143)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_qlfek")

@@ -29,7 +29,7 @@ const MAX_SPEED = 250.0
 const ACCELERATION = 1200.0
 const FRICTION = 1200.0
 const TURN_BRAKE = 3000.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -400.0
 
 # Señales
 signal defeat

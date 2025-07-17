@@ -20,6 +20,7 @@ config/icon="uid://da28nkqh81u2y"
 Debug="*res://scripts/debug.gd"
 LevelManager="*res://scripts/LevelManager.gd"
 MusicManager="*res://scripts/MusicManager.gd"
+SceneTransition="*res://scripts/SceneTransition.gd"
 
 [display]
 

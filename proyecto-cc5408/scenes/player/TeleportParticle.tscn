@@ -36,6 +36,7 @@ anim_offset_max = 1.0
 script = ExtResource("1_ih2l7")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 material = SubResource("CanvasItemMaterial_ih2l7")
 emitting = false
 texture = ExtResource("2_3iic8")

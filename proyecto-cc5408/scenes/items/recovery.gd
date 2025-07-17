@@ -1,5 +1,5 @@
 extends Area2D
-
+@export var time_add := 3
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -18,5 +18,5 @@ func _apply_effect(body: Node2D) -> void:
 	if body is Player:
 		var padre = get_parent()
 		if padre is Level:
-			padre.time_left += 1.0
+			padre.time_left += time_add
 			queue_free()

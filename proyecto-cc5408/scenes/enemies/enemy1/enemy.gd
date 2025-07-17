@@ -4,10 +4,13 @@ extends CharacterBody2D
 @export var speed := 60.0
 @export var boosted_speed := 180.0
 @export var detection_range := 150.0
+@export var ignore_walls := false
+
 
 @onready var player: Player = get_tree().get_first_node_in_group("Player")
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var raycast := $RayCast2D
+
 
 var original_scale := Vector2.ONE
 var is_chasing_now := false
@@ -20,6 +23,7 @@ func _ready():
 	animated_sprite.modulate.a = 1.0
 	animated_sprite.play("IDLE")
 	raycast.enabled = true
+
 
 func _physics_process(delta):
 	if player == null:
